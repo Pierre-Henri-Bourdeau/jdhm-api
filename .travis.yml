@@ -14,4 +14,4 @@ script:
     - ./bin/phpunit
 
 after_script:
-  - vendor/bin/test-reporter
+  - bin/test-reporter
