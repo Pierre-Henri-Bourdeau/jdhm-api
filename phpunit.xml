@@ -34,6 +34,9 @@
         <whitelist>
             <directory>src</directory>
             <exclude>
+                <directory>src/JdhmApi/Repository</directory>
+                <directory>src/JdhmApi/DataFixtures</directory>
+                <directory>src/JdhmApi/Entity</directory>
                 <directory>src/JdhmApi/Resources</directory>
                 <directory>src/JdhmApi/Tests</directory>
             </exclude>
