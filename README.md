@@ -15,7 +15,7 @@ Jdhm-Api is a private RESTful API
 ```
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get update
-sudo apt-get install php7.0 php7.0-dev php7.0-cli php7.0-curl php7.0-dev php7.0-intl php7.0-json php7.0-mysql php7.0-opcache php7.0-readline php7.0-curl
+sudo apt-get install php7.0 php7.0-dev php7.0-cli php7.0-curl php7.0-dev php7.0-intl php7.0-json php7.0-mysql php7.0-opcache php7.0-readline php7.0-curl php7.0-xml
 
 # Check version
 php -v

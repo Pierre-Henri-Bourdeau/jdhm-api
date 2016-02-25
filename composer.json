@@ -34,6 +34,7 @@
     "require": {
         "php": ">=7.0",
         "ext-curl": "*",
+        "ext-dom": "*",
         "symfony/symfony": "3.0.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
