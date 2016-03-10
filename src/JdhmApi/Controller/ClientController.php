@@ -12,6 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 use JdhmApi\Entity\Client;
+use JdhmApi\Form\Type\ClientType;
 
 /**
 * @Extra\Route("/clients", name="homepage")
@@ -148,31 +149,36 @@ class ClientController extends FOSRestController
     */
     public function createClientAction(Request $request)
     {
-        $em = $this->get('doctrine')->getManager();
+        $client = new Client();
+        $form = $this->createForm(ClientType::class, $client);
+
         $content = json_decode($request->getContent(), true);
 
         if (!$content) {
             throw new HttpException("No json data in body", 405);
         }
 
-        $client = new Client();
-        $client->setFirstName($content['firstName']);
-        $client->setLastName($content['lastName']);
-        $client->setEmail($content['email']);
+        $form->submit($content);
 
-        if (array_key_exists('dateOfBirth', $content) && !empty($content['dateOfBirth'])) {
-            $date = \DateTime::createFromFormat('d/m/Y', $content['dateOfBirth']);
-            $client->setDateOfBirth($date);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $client->setFirstName($content['firstName']);
+            $client->setLastName($content['lastName']);
+            $client->setEmail($content['email']);
+
+            if (array_key_exists('dateOfBirth', $content) && !empty($content['dateOfBirth'])) {
+                $date = \DateTime::createFromFormat('d/m/Y', $content['dateOfBirth']);
+                $client->setDateOfBirth($date);
+            }
+
+            $em->persist($client);
+            $em->flush();
+
+            return ['data' => 'Ok'];
         }
 
-        $em->persist($client);
-        $em->flush();
+        return $form;
 
-        $data = [
-            'data' => $client
-        ];
-
-        return $data;
     }
 
     /**
