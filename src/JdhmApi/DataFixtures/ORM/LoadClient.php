@@ -67,7 +67,8 @@ class LoadClient implements FixtureInterface
             'lovesy',
             'kool',
             'ool',
-            'yahcafe'
+            'yahcafe',
+            'hillo'
         ];
 
         $tdls = [
