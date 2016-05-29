@@ -53,7 +53,7 @@
         "composer/composer": "dev-master",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "3.0.*",
-        "phpunit/phpunit": "5.3.2",
+        "phpunit/phpunit": "5.3.4",
         "squizlabs/php_codesniffer": "2.*",
         "escapestudios/symfony2-coding-standard": "~2.0",
         "phploc/phploc": "~3.0.0",

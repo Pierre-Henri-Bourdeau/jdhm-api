@@ -75,6 +75,13 @@ sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX var/cache var/logs
 
 ```
 
+##### database
+```bash
+php bin/console doctrine:database:create
+php bin/console doctrine:schema:create
+php bin/console doctrine:fixtures:load
+```
+
 ## Server deploy
 
 ``` bash
