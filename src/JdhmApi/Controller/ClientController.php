@@ -44,11 +44,9 @@ class ClientController extends FOSRestController
                         ->getRepository('JdhmApi\Entity\Client')
                         ->findAll();
 
-        $data = [
+        return [
             'data' => $clients
         ];
-
-        return $data;
     }
 
     /**
@@ -73,11 +71,9 @@ class ClientController extends FOSRestController
     */
     public function getClientAction(Client $client)
     {
-        $data = [
+        return [
             'data' => $client
         ];
-
-        return $data;
     }
 
     /**
@@ -102,6 +98,7 @@ class ClientController extends FOSRestController
     */
     public function updateClientAction(Client $client, Request $request)
     {
+        //@todo use form, this piece of code is dreadful...
         $em = $this->get('doctrine')->getManager();
         $content = json_decode($request->getContent(), true);
 
@@ -121,11 +118,9 @@ class ClientController extends FOSRestController
         $em->persist($client);
         $em->flush();
 
-        $data = [
+        return [
             'data' => $client
         ];
-
-        return $data;
     }
 
     /**
@@ -207,10 +202,8 @@ class ClientController extends FOSRestController
         $em->remove($client);
         $em->flush();
 
-        $data = [
+        return [
             'status' => 'Ok'
         ];
-
-        return $data;
     }
 }
