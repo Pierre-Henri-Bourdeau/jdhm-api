@@ -1,5 +1,5 @@
 {
-    "name": "jdhm-api",
+    "name": "bourdeau/jdhm-api",
     "license": "MIT",
     "type": "project",
     "description": "RESTful API",
@@ -70,12 +70,6 @@
         "behat/mink-goutte-driver": "^1.2"
     },
     "scripts": {
-        "pre-update-cmd": [
-            "JdhmApi\\Git\\Hook\\Hooks::create"
-        ],
-        "pre-install-cmd": [
-            "JdhmApi\\Git\\Hook\\Hooks::create"
-        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",

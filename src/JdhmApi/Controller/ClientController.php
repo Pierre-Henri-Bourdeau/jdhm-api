@@ -98,7 +98,6 @@ class ClientController extends FOSRestController
     */
     public function updateClientAction(Client $client, Request $request)
     {
-        //@todo use form, this piece of code is dreadful...
         $em = $this->get('doctrine')->getManager();
         $content = json_decode($request->getContent(), true);
 
